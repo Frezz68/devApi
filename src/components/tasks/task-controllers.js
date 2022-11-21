@@ -45,7 +45,9 @@ export async function findOne(ctx) {
 export async function updateOne(ctx) {
     try {
         console.log(ctx.params.id)
-        await Task.findOneAndUpdate(ctx.params.id, ctx.request.body)
+        let taskObj = ctx.request.body
+        taskObj.doDate = Date.now();
+        await Task.findOneAndUpdate(ctx.params.id, taskObj)
         ctx.status = 204
     } catch (e) {
         ctx.badRequest({message : e.message})
