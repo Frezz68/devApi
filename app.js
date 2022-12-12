@@ -1,4 +1,5 @@
 import '#config/database.js'
+import '#config/maildev.js'
 import respond from "koa-respond"
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
