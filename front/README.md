@@ -1,33 +1,24 @@
-# Quasar App (todo-app)
+# ynov-api
 
-A Quasar Project
-
-## Install the dependencies
-```bash
-yarn
-# or
+## Project setup
+```
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
+### Compiles and minifies for production
+```
+npm run build
+```
 
-### Lint the files
-```bash
-yarn lint
-# or
+### Lints and fixes files
+```
 npm run lint
 ```
 
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
