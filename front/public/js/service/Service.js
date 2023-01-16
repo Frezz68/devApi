@@ -1,4 +1,14 @@
 export const Service = {
+    callWithoutAuth: async (url, data, methode) => {
+        return await fetch(url, {
+            method: methode.toUpperCase(),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: data,
+        })
+    },
     callWithAuth: async (url, data, methode) => {
         return await fetch(url, {
             method: methode.toUpperCase(),
@@ -20,14 +30,4 @@ export const Service = {
             },
         });
     },
-    callWithoutAuth: async (url, data, methode) => {
-        return await fetch(url, {
-            method: methode.toUpperCase(),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: data,
-        })
-    }
 }

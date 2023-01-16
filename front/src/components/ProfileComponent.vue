@@ -1,17 +1,16 @@
 <template>
-  <div class="profile">
+  <div class="profil">
     <span class="error">{{error}}</span>
     <div v-if="!isEditing">
-      <span>votre email: {{this.profile.email}}</span><br/>
-      <span>le comptes est: {{this.profile.settings.is_email_validated ? "validé" : "non validé"}}</span><br/>
-      <span>crée le: {{this.profile.createdAt}}</span><br/>
+      <span>votre email: {{this.profil.email}}</span><br/>
+      <span>le comptes est : {{this.profil.settings.is_email_validated ? "valide" : "non valide"}}</span><br/>
+      <span>crée le : {{this.profil.createdAt}}</span><br/>
       <button v-on:click="setEditing(true)">Modifier</button>
     </div>
-
     <div v-if="isEditing">
       <input v-model="this.edited.email" placeholder="nouveau email"><br/>
       <input v-model="this.edited.password" placeholder="nouveau password" type="password"><br/>
-      <button v-on:click="editProfile">Confirmé</button>
+      <button v-on:click="editProfil">Confirmé</button>
       <button v-on:click="setEditing(false)">Annuler</button>
     </div>
   </div>
@@ -23,7 +22,7 @@ import {ServiceUtilisateur} from "../../public/js/service/ServiceUtilisateur";
 export default {
   name: "ProfileComponent",
   data: () => ({
-    profile: {settings: {is_email_validated: false}},
+    profil: {settings: {is_email_validated: false}},
     error: "",
     isEditing: false,
     edited: {email: "", password: ""}
@@ -32,7 +31,7 @@ export default {
     setEditing(value) {
       this.isEditing = value;
     },
-    setProfile() {
+    setProfil() {
       ServiceUtilisateur.getInfo()
       .then(async (response) => {
         if(response.status === 200) {
@@ -42,11 +41,11 @@ export default {
         }
       });
     },
-    editProfile() {
+    editProfil() {
       ServiceUtilisateur.updateInfo(this.edited.email, this.edited.password)
       .then(async (response) => {
         if(response.status === 200) {
-          this.setProfile();
+          this.setProfil();
           this.setEditing(false);
         } else {
           this.error = await response.json();
@@ -55,19 +54,19 @@ export default {
     }
   },
   mounted() {
-    this.setProfile();
+    this.setProfil();
   }
 }
 </script>
 
 <style>
-.profile {
+.profil {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.profile span {
+.profil span {
   font-size: 16px;
   color: #333;
 }
@@ -77,7 +76,7 @@ export default {
   font-weight: bold;
 }
 
-.profile input {
+.profil input {
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -85,7 +84,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.profile button {
+.profil button {
   padding: 10px;
   background-color: #7f26d3;
   color: #fff;
@@ -96,7 +95,7 @@ export default {
   margin-right: 10px;
 }
 
-.profile button:hover {
+.profil button:hover {
   background-color: #621da3;
 }
 </style>

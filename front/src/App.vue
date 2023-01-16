@@ -10,9 +10,11 @@
 
 import LoginComponent from './components/LoginComponent.vue'
 import RegisterComponent from './components/RegisterComponent.vue'
-import ListeComponent from './components/ListesComponent.vue'
-import NavComponent from './components/NavComponent.vue'
 import ProfileComponent from './components/ProfileComponent.vue'
+import NavComponent from './components/NavComponent.vue'
+import ListeComponent from './components/ListesComponent.vue'
+
+
 
 export default {
   name: 'App',

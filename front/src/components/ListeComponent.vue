@@ -1,6 +1,6 @@
 <template>
   <div class="liste-component">
-    <div class="horizontale size80">
+    <div class="horizontale size">
       <h2 v-if="!isEdit">{{liste.title}}</h2>
       <input v-if="isEdit" v-model="title" placeholder="Titre de la liste">
       <div class="horizontale">
@@ -10,8 +10,8 @@
         <button v-if="isEdit" v-on:click="setEditing(false)">Annuler</button>
       </div>
     </div>
-    <p>Créée le: {{liste.createdAt}}</p>
-    <p>Modifiée le: {{liste.updatedAt}}</p>
+    <p>Créée le : {{liste.createdAt}}</p>
+    <p>Modifiée le : {{liste.updatedAt}}</p>
     <div class="tasks-container">
       <div v-for="task in tasks.filter(aTask => aTask.list === liste._id)" :key="task._id" class="task-child">
         <TaskComponent :task="task" :tasks="tasks" @setTasks="setTasks"></TaskComponent>
@@ -99,14 +99,14 @@ export default {
 </script>
 
 <style>
-.size80 {
-  width: 80%;
-}
-
 .liste-component {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
+}
+
+.size {
   width: 80%;
 }
 

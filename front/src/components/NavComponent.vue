@@ -3,7 +3,7 @@
   <button v-on:click="goToLogin" v-if="!isConnected">Login</button>
   <button v-on:click="goToRegister" v-if="!isConnected">Register</button>
   <button v-on:click="goToAccueil" v-if="isConnected">Accueil</button>
-  <button v-on:click="goToProfile" v-if="isConnected">Profil</button>
+  <button v-on:click="goToProfil" v-if="isConnected">Profil</button>
   <button v-on:click="logout" v-if="isConnected">Logout</button>
 </template>
 
@@ -17,7 +17,7 @@ export default {
       this.$emit("changePage", "listes");
     },
 
-    async goToProfile() {
+    async goToProfil() {
       this.$emit("changePage", "profile");
     },
 
